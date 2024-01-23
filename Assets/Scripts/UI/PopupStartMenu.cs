@@ -5,9 +5,31 @@ using UnityEngine.UI;
 
 public class PopupStartMenu : MonoBehaviour
 {
+    [SerializeField] private Image characterSprite;
     [SerializeField] private InputField inputField;
-    [SerializeField] private Text playerName;
+    [SerializeField] private GameObject information;
+    [SerializeField] private GameObject selectCharacter;
 
+    private CharacterType characterType;
+
+    public void OnClickCharater()
+    {
+        information.SetActive(false);
+        selectCharacter.SetActive(true);
+    }
+
+    public void OnClickSelectCharacter(int index)
+    {
+        characterType = (CharacterType)index;
+        var character = GameManager.Instance.CharaterList.Find(item => item.CharacterType == characterType);
+
+        characterSprite.sprite = character.CharacterSprite;
+        characterSprite.SetNativeSize();
+
+        selectCharacter.SetActive(false);
+        information.SetActive(false);
+    }
+     
     public void OnClickJoin()
     {
         if(2 < inputField.text.Length && inputField.text.Length < 10)
@@ -15,7 +37,7 @@ public class PopupStartMenu : MonoBehaviour
             return;
         }
 
-        playerName.text = inputField.text;
+        GameManager.Instance.PlayerName.text = inputField.text;
 
         Destroy(gameObject);
     }
