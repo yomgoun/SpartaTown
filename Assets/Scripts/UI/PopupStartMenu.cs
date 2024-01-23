@@ -37,7 +37,7 @@ public class PopupStartMenu : MonoBehaviour
             return;
         }
 
-        GameManager.Instance.PlayerName.text = inputField.text;
+        GameManager.Instance.SetChracter(characterType,inputField.text);
 
         Destroy(gameObject);
     }

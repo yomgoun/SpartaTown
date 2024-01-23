@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public List<Charater> CharaterList = new List<Charater>();
 
-    public Animator PalyerAnimator;
+    public Animator PlayerAnimator;
     public Text PlayerName;
 
     public void Awake()
@@ -33,5 +33,13 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    public void SetChracter(CharacterType characterType,string name)
+    {
+        var character = GameManager.Instance.CharaterList.Find(item => item.CharacterType == characterType);
+
+        PlayerAnimator.runtimeAnimatorController = character.AnimatorController;
+        PlayerName.text = name;
     }
 }
