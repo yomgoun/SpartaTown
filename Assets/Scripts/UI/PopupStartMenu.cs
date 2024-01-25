@@ -27,12 +27,12 @@ public class PopupStartMenu : MonoBehaviour
         characterSprite.SetNativeSize();
 
         selectCharacter.SetActive(false);
-        information.SetActive(false);
+        information.SetActive(true);
     }
      
     public void OnClickJoin()
     {
-        if(2 < inputField.text.Length && inputField.text.Length < 10)
+        if(2 >= inputField.text.Length || inputField.text.Length >= 10)
         {
             return;
         }

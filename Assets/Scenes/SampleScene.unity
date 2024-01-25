@@ -5846,10 +5846,10 @@ MonoBehaviour:
   - CharacterType: 0
     CharacterSprite: {fileID: 21300000, guid: 377e209da51e8ff4eb98b235b49eea49, type: 3}
     AnimatorController: {fileID: 9100000, guid: b6a257bc037314285963989208adb333, type: 2}
-  - CharacterType: 0
+  - CharacterType: 1
     CharacterSprite: {fileID: 21300000, guid: 98bc39139247d1846900cf0ecfdb42ac, type: 3}
     AnimatorController: {fileID: 0}
-  PalyerAnimator: {fileID: 644324683}
+  PlayerAnimator: {fileID: 644324683}
   PlayerName: {fileID: 728464983}
 --- !u!4 &1140921875
 Transform:
